@@ -3,12 +3,10 @@ import 'package:easy_localization_bug_example/routes.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:window_manager/window_manager.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  await WindowManager.instance.ensureInitialized();
   runApp(ProviderScope(
     child: EasyLocalization(
         assetLoader: const CodegenLoader(),

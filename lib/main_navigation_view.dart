@@ -3,7 +3,6 @@ import 'package:easy_localization_bug_example/controller.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:window_manager/window_manager.dart';
 
 class MainNavigationView extends ConsumerWidget {
   final Widget child;
@@ -29,11 +28,9 @@ class MainNavigationView extends ConsumerWidget {
     final localizations = ref.watch(applicationLocalizationsProvider);
     return NavigationView(
       appBar: NavigationAppBar(
-        title: const DragToMoveArea(
-          child: SizedBox(
-            width: double.infinity,
-            child: Text('No click'),
-          ),
+        title: const SizedBox(
+          width: double.infinity,
+          child: Text('No click'),
         ),
         actions: Row(
           mainAxisAlignment: MainAxisAlignment.end,
@@ -50,7 +47,6 @@ class MainNavigationView extends ConsumerWidget {
               value: ref.watch(localizationProvider),
               onChanged: (value) {},
             ),
-            const SizedBox(width: 138, height: 50, child: WindowCaption()),
           ],
         ),
         leading: Container(
