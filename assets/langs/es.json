@@ -1,0 +1,10 @@
+{
+    "selectProgramsToInstall":"Programas a instalar",
+    "addProgram":"Añadir un programa",
+    "installSelectedPrograms":{
+        "zero":"Seleccione los programas para instalar",
+        "one":"Instalar {} programa seleccionados",
+        "other":"Instalar {} programas seleccionados"
+    }
+}
+

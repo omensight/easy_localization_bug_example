@@ -1,0 +1,10 @@
+{
+    "selectProgramsToInstall":"Select programs to install",
+    "addProgram":"Add program",
+    "installSelectedPrograms":{
+        "zero":"Please select programs to install",
+        "one":"Install {} selected programs",
+        "other":"Install {} selected programs"
+    }
+}
+
