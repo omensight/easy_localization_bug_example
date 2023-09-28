@@ -28,6 +28,7 @@ class MyApp extends ConsumerWidget {
     return FluentApp.router(
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
+      locale: context.locale,
       debugShowCheckedModeBanner: false,
       routerConfig: ref.watch(goRouterProvider),
       theme: FluentThemeData(

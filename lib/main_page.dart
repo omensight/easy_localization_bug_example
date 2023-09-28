@@ -7,9 +7,13 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tl = const Text(LocaleKeys.selectProgramsToInstall).tr(
+      context: context,
+    );
     return ScaffoldPage(
-      content:
-          Center(child: const Text(LocaleKeys.selectProgramsToInstall).tr()),
+      content: Center(
+        child: tl,
+      ),
     );
   }
 }

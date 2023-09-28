@@ -15,16 +15,16 @@ class MainNavigationView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.listen(localizationProvider, (previous, localization) {
-      var languageCode = localization?.locale.$1;
-      var countryCode = localization?.locale.$2;
-      if (languageCode != null && countryCode != null) {
-        EasyLocalization.of(context)
-            ?.setLocale(Locale(languageCode, countryCode));
-      } else if (languageCode != null) {
-        EasyLocalization.of(context)?.setLocale(Locale(languageCode));
-      }
-    });
+    // ref.listen(localizationProvider, (previous, localization) {
+    //   var languageCode = localization?.locale.$1;
+    //   var countryCode = localization?.locale.$2;
+    //   if (languageCode != null && countryCode != null) {
+    //     EasyLocalization.of(context)
+    //         ?.setLocale(Locale(languageCode, countryCode));
+    //   } else if (languageCode != null) {
+    //     EasyLocalization.of(context)?.setLocale(Locale(languageCode));
+    //   }
+    // });
     final localizations = ref.watch(applicationLocalizationsProvider);
     return NavigationView(
       appBar: NavigationAppBar(
@@ -35,17 +35,21 @@ class MainNavigationView extends ConsumerWidget {
         actions: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            ComboBox<ApplicationLocalization>(
-              items: localizations
+            ComboBox<Locale>(
+              items: context.supportedLocales
                   .map(
-                    (e) => ComboBoxItem<ApplicationLocalization>(
+                    (e) => ComboBoxItem<Locale>(
                       value: e,
-                      child: Text(e.languageName),
+                      child: Text(e.toLanguageTag()),
                     ),
                   )
                   .toList(),
-              value: ref.watch(localizationProvider),
-              onChanged: (value) {},
+              value: context.locale,
+              onChanged: (locale) {
+                if (locale != null) {
+                  EasyLocalization.of(context)!.setLocale(locale);
+                }
+              },
             ),
           ],
         ),
